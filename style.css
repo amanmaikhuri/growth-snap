@@ -1,0 +1,252 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.darkmode{
+    background-color: var(--bg-dark);
+    color: var(--text-secondary);
+}
+
+.lightmode{
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+}
+
+:root{
+    --bg-light: #fafafa;
+    --bg-dark: #2e2e2e;
+    --primary: #3a86ff;
+    --secondary: #8838ec;
+    --text-primary: #1c1c1c;
+    --text-secondary: #737373;
+    --input-bg: #ffffff;
+    --input-border: #cccccc;
+    --button-bg: #3d5afe;
+    --button-text: #ffffff;
+    --hover: #304ffe;
+    --success: #2ecc71;
+    --error: #e74c3c;
+    --bg-card: #f5f5f5;
+}
+
+header{
+    padding: 0.5rem 1.5rem;
+    border-bottom: 2px solid var(--secondary);
+    font-style: italic;
+    color: var(--primary);
+    font-size: 0.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;left: 0;right: 0;
+
+}
+
+
+.toggle-mode{
+    border: 2px solid var(--secondary);
+    border-radius: 50%;
+    padding: 0.3rem;
+    margin-right: 0.5rem;
+    color: var(--primary);
+    box-shadow: 0 4px 8px var(--primary);
+    background-color: inherit;
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    padding-top: 3.8rem;
+    padding-bottom: 2rem;
+    gap: 0.9rem;
+    margin-top: 0.8rem;
+}
+
+.daily-snap-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    font-size: 0.6rem;
+    gap: 0.4rem;
+}
+
+@media (min-width:600px){
+    .daily-snap-container{
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1rem;
+        gap: 0.6rem;
+    }
+}
+
+label{
+    display: flex ;
+    align-items: center;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+input{
+    background-color: var(--input-bg);
+    border: 2px solid var(--input-border);
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+}
+
+select{
+    color: var(--primary);
+    font-weight: bold;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    border: 2px solid var(--input-border);
+}
+
+.snap-btn,.delete-btn ,.delete-entry{
+    width: 5rem;
+    color: var(--button-text);
+    background-color: var(--button-bg);
+    border: 2px solid var(--input-border);
+    border-radius: 0.3rem;
+    box-shadow: 0 2px 4px var(--primary);
+    padding: 0.1rem;
+    font-weight: 400;
+}
+
+.snap-btn:hover ,.snap-btn:focus{
+    background-color: var(--hover);
+    transform: scale(0.9);
+    transition: 0.5s ease-in-out;
+}
+
+.logs-container{
+    margin: 0 auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--secondary);
+}
+
+.logs-container h2{
+    color: var(--primary);
+    font-size: 1rem;
+    padding-left: 0.2rem;
+}
+
+span{
+    font-style: italic;
+    font-weight: bold;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid var(--success);
+}
+
+#win-para{
+    grid-area: win;
+
+}
+
+#struggle-para{
+    grid-area: struggle;
+}
+
+#goal-para{
+    grid-area: goal;
+}
+
+#mood-para{
+    grid-area: mood;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    border: 1px solid var(--success);
+    border-radius: 0.4rem;;
+    padding: 0.3rem;
+    width: max-content;
+}
+
+#time-stamp{
+    grid-area: time;
+    font-size: 0.5rem;
+    color: var(--hover);
+    font-weight: bold;
+}
+
+.title {
+    max-width: 800px;
+}
+
+.title h2{
+    color: var(--primary);
+}
+
+.log-content{
+    display: grid;
+    gap: 0.2rem;
+    grid-template-areas:
+    "win win mood"
+    "struggle struggle mood"
+    "goal goal goal"
+    "time time time";
+    border: 2px solid var(--input-border);
+    padding: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 0.75rem;
+    border-radius: 0.4rem;
+    color: var(--primary);
+    box-shadow: 0 2px 4px var(--primary);
+}
+
+.log-content:hover ,.log-content:focus{
+    transform: scale(0.9);
+    transition: 0.3s ease-in-out
+}
+
+@media (min-width:600px){
+    .log-content{
+        gap: 0.5rem;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-radius: 0.6rem;
+        box-shadow: 0 4px 8px var(--primary);
+    }
+    #mood-para{
+        font-size: 2rem;
+    }
+    #time-stamp{
+        font-size: 1rem;
+    }
+    header{
+        font-size: 1rem;
+    }
+    input{
+        padding: 0.5rem;
+    }
+    .snap-btn,.delete-btn ,.delete-entry{
+        width: 9rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
+    .title {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+footer{
+    color: var(--primary);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0.2rem;
+    border-top: 1px solid var(--secondary);
+    position: fixed;
+    bottom: 0;left: 0;right: 0;
+    background-color: var(--bg-light);
+}

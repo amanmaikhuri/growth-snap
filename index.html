@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Snap</title>
+    <meta name="description" content="Track your daily growth, struggles, and goals with Growth Snap. A simple way to reflect on your journey!">
+    <meta property="og:title" content="Growth Snap">
+    <meta property="og:description" content="Track your daily growth, struggles, and goals with Growth Snap. A simple way to reflect on your journey!">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="lightmode">
+    <header>
+        <div class="logo">
+            <h1>Growth Snap</h1>
+        </div>
+        <button aria-label="toogle between dark/light themes" class="toggle-mode"><i class="fa"></i></button>
+    </header>
+    <main>
+        <div class="daily-snap-container">
+            <label for="win">Win Today: </label>
+            <input type="text" placeholder="e.g. Coded 2 hours" id="win">
+
+            <label for="struggle">Struggle: </label>
+            <input type="text" placeholder="e.g. Procrastinated" id="struggle">
+
+            <label for="goal">Goal for Tomorrow: </label>
+            <input type="text" placeholder="e.g. Fix bugs" id="goal" >
+
+            <label for="mood">Select Your Mood: </label>
+            <select name="moods" id="mood">
+                <option value="happy">😃 (happy)</option>
+                <option value="excited">🤩 (excited)</option>
+                <option value="Cheerful">😄 (cheerful)</option>
+                <option value="Grateful">🙏😊 (grateful)</option>
+                <option value="loved" selected>❤️🥰 (loved)</option>
+                <option value="confident">😎 (confident)</option>
+                <option value="motivated">🚀💪 (motivated)</option>
+                <option value="relaxed">😌🧘‍♂️ (relaxed)</option>
+                <option value="inspired">✨😃 (inspired)</option>
+                <option value="hopeful">🌟🙂 (hopeful)</option>
+                <option value="calm">😌 (calm)</option>
+                <option value="thoughtful">🤔 (thoughtful)</option>
+                <option value="focused">🎯😐 (focused)</option>
+                <option value="neutral">😐 (neutral)</option>
+                <option value="meh">😑 (meh)</option>
+                <option value="tired">😴 (tired)</option>
+                <option value="sad">😢 (sad)</option>
+                <option value="stressed">😫 (stressed)</option>
+                <option value="angry">😠 (angry)</option>
+                <option value="frustrated">😤 (frustrated)</option>
+                <option value="anxious">😟😰 (anxious)</option>
+                <option value="depressed">😔💔 (depressed)</option>
+                <option value="heartbroken">💔😞 (heartbroken)</option>
+                <option value="annoyed">😒 (annoyed)</option>
+                <option value="disappointed">😞 (disappointed)</option>
+                <option value="silly">🤪 (silly)</option>
+                <option value="mischievous">😈 (mischievous)</option>
+                <option value="sarcastic">🙃 (sarcastic)</option>
+                <option value="goofy">🤭 (goofy)</option>
+                <option value="laughing">😂🤣 (laughing)</option>
+                <option value="excited-hyper">🤩🔥 (excited hyper)</option>
+                <option value="romantic">😘💕 (romantic)</option>
+                <option value="flirty">😉😍 (flirty)</option>
+                <option value="cuddly">🥰🤗 (cuddly)</option>
+                <option value="crush">😍💘 (crush)</option>
+                <option value="blushing">😊🥵 (blushing)</option>
+                <option value="sick">🤒🤢 (sick)</option>
+                <option value="sleepy">💤😴 (sleepy)</option>
+                <option value="scared">😨👻 (scared)</option>
+                <option value="shocked">😱 (shocked)</option>
+                <option value="nervous">😬 (nervous)</option>
+            </select>
+
+            <button class="snap-btn" type="button">Snap It</button>
+            <button class="delete-btn" type="button">remove All</button>
+        </div>
+        <div class="title">
+            <h2>Evolving You</h2>
+        </div>
+        <div class="logs-container"></div>
+    </main>
+    <footer>
+        <p>Made with ❤️ by LimeLight</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
