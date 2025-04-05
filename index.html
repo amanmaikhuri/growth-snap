@@ -8,7 +8,9 @@
     <meta property="og:title" content="Growth Snap">
     <meta property="og:description" content="Track your daily growth, struggles, and goals with Growth Snap. A simple way to reflect on your journey!">
     <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="lightmode">
@@ -16,14 +18,18 @@
         <div class="logo">
             <h1>Growth Snap</h1>
         </div>
-        <button aria-label="toogle between dark/light themes" class="toggle-mode"><i class="fa"></i></button>
+        <div class="nav-container">
+            <button aria-label="toogle between dark/light themes" class="toggle-mode"><i class="fa"></i></button>
+            <span id="streak-count"></span>
+        </div>
     </header>
     <main>
+        <p class="intro">[ Track your daily wins ,challenges , and Goals! (Perfect for Coders, Students, or anyone chasing goals !) ]</p>
         <div class="daily-snap-container">
-            <label for="win">Win Today: </label>
+            <label for="win">Today's Win: </label>
             <input type="text" placeholder="e.g. Coded 2 hours" id="win">
 
-            <label for="struggle">Struggle: </label>
+            <label for="struggle">Today's Challenge: </label>
             <input type="text" placeholder="e.g. Procrastinated" id="struggle">
 
             <label for="goal">Goal for Tomorrow: </label>
@@ -74,17 +80,31 @@
                 <option value="nervous">😬 (nervous)</option>
             </select>
 
-            <button class="snap-btn" type="button">Snap It</button>
-            <button class="delete-btn" type="button">remove All</button>
+            <button class="snap-btn" type="button">Save My Day</button>
+            <button class="delete-btn" type="button">Remove All</button>
         </div>
         <div class="title">
-            <h2>Evolving You</h2>
+            <h2>My Growth Logs</h2>
+            <p id="success-msg">[Your logs will be displayed here !]</p>
         </div>
-        <div class="logs-container"></div>
+        <div class="logs-container">
+                <p id="win-para"><span>Today's Win:</span>Studied 2 hours</p>
+                <p id="struggle-para"><span>Today's Challenge:</span> Procrastination ,distraction</p>
+                <p id="goal-para"><span>Goal:</span>complete two chapters</p>
+                <p id="mood-para"><span>Mood:</span>Happy</p>
+                 <p id="time-stamp"><small>02/04/2025 at 10:35:24</small></p>
+                <button data-id="${i}" class="edit-entry"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button data-id="${i}" class="delete-entry"><i class="fa-solid fa-trash"></i></button>
+
+        </div>
+        <div class="chart-container" style="height: 300px;">
+            <div class="stats-container"></div>
+            <canvas id="moodChart"></canvas>
+        </div>
     </main>
     <footer>
         <p>Made with ❤️ by LimeLight</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

@@ -15,25 +15,39 @@
 }
 
 :root{
-    --bg-light: #fafafa;
-    --bg-dark: #2e2e2e;
-    --primary: #3a86ff;
-    --secondary: #8838ec;
-    --text-primary: #1c1c1c;
-    --text-secondary: #737373;
-    --input-bg: #ffffff;
-    --input-border: #cccccc;
-    --button-bg: #3d5afe;
-    --button-text: #ffffff;
-    --hover: #304ffe;
-    --success: #2ecc71;
-    --error: #e74c3c;
-    --bg-card: #f5f5f5;
+    --primary: #3b82f6;
+    --success: #10b981;
+    --mindful: #8b5cf6;
+    --danger: #ef4444;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --bg-light: #f3f4f6;
+    --bg-dark: #1f2937;
+    --input-bg: #fff;
+    --input-border: #d1d5db;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --font-family:'Inter',system-ui ,-apple-system ,sans-serif;
+}
+
+@media (prefer-color-scheme: dark){
+    :root{
+        --text-primary: #f3f4f6;
+        --text-secondary:#9ca3af;
+        --bg-light: #1f2937;
+        --bg-dark: #111827;
+        --input-bg: #374151;
+        --input-border: #4b5563;
+    }
+}
+
+body{
+    font-family: var(--font-family);
 }
 
 header{
     padding: 0.5rem 1.5rem;
-    border-bottom: 2px solid var(--secondary);
+    border-bottom: 2px solid var(--mindful);
     font-style: italic;
     color: var(--primary);
     font-size: 0.8rem;
@@ -44,35 +58,70 @@ header{
     align-items: center;
     position: fixed;
     top: 0;left: 0;right: 0;
-
 }
 
-
+ 
 .toggle-mode{
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--success);
     border-radius: 50%;
     padding: 0.3rem;
     margin-right: 0.5rem;
-    color: var(--primary);
-    box-shadow: 0 4px 8px var(--primary);
+    color: var(--mindful);
+    box-shadow: var(--shadow-md);
     background-color: inherit;
     cursor: pointer;
 }
+
+.intro , #success-msg{
+    text-align: center;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    color: var(--success);
+    font-weight: 600;
+    font-size: 0.65rem;
+}
+
+#success-msg{
+    font-size: 0.65rem;
+    color: var(--danger);
+    border: none;
+    padding: 0.2rem 0 0 0;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 
 main{
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    padding-top: 3.8rem;
+    padding-top: 3.2rem;
     padding-bottom: 2rem;
     gap: 0.9rem;
     margin-top: 0.8rem;
+    padding-bottom: 10em;
 }
 
 .daily-snap-container{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2,0.9fr);
     font-size: 0.6rem;
+    margin: 0 auto;
     gap: 0.4rem;
 }
 
@@ -83,13 +132,19 @@ main{
         font-size: 1rem;
         gap: 0.6rem;
     }
+    .intro{
+        font-size: 0.95rem;
+    }
+    #success-msg{
+        font-size: 0.95rem;
+        color: var(--danger);
+    }
 }
 
 label{
     display: flex ;
     align-items: center;
-    font-weight: 500;
-    color: var(--primary);
+    font-weight: 600;
 }
 
 input{
@@ -101,46 +156,71 @@ input{
 
 select{
     color: var(--primary);
-    font-weight: bold;
-    padding: 0.2rem;
+    font-size: 0.9rem;
+    padding: 0.3rem;
     border-radius: 0.3rem;
     border: 2px solid var(--input-border);
 }
 
-.snap-btn,.delete-btn ,.delete-entry{
+.snap-btn,.delete-btn{
     width: 5rem;
-    color: var(--button-text);
-    background-color: var(--button-bg);
+    color: var(--bg-light);
+    background-color: var(--primary);
     border: 2px solid var(--input-border);
     border-radius: 0.3rem;
-    box-shadow: 0 2px 4px var(--primary);
+    box-shadow: var(--shadow-md);
     padding: 0.1rem;
     font-weight: 400;
+    cursor: pointer;
+}
+
+.delete-entry,.edit-entry{
+    width: 2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: large;
+    color: var(--success);
+    background: none;
+    cursor: pointer;
+    grid-area: btn;
+}
+
+.delete-entry{
+    color: var(--danger);
+}
+
+.edit-entry{
+    justify-self: end;
+}
+
+.delete-btn {
+    background-color: var(--danger);
+}
+
+.delete-btn:hover ,.delete-btn:focus{
+    background-color: red;
+    transform: scale(0.95);
+    transition: 0.5s ease-in-out;
 }
 
 .snap-btn:hover ,.snap-btn:focus{
-    background-color: var(--hover);
-    transform: scale(0.9);
+    background-color: blue;
+    transform: scale(0.95);
     transition: 0.5s ease-in-out;
 }
 
 .logs-container{
     margin: 0 auto;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
+    max-width: 800px;
+    display: grid;
     gap: 0.5rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--secondary);
-}
-
-.logs-container h2{
-    color: var(--primary);
-    font-size: 1rem;
-    padding-left: 0.2rem;
+    padding: 0.5rem;
+    border-top: 1px solid var(--mindful);
 }
 
 span{
+    color: var(--primary);
     font-style: italic;
     font-weight: bold;
     padding-bottom: 0.1rem;
@@ -161,15 +241,17 @@ span{
 }
 
 #mood-para{
+    display: grid;
+    place-content: center;
     grid-area: mood;
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
+    font-size: 0.6rem;
     border: 1px solid var(--success);
-    border-radius: 0.4rem;;
+    border-radius: 0.4rem;
+    font-weight: 600;
     padding: 0.3rem;
-    width: max-content;
+    color: var(--mindful);
 }
+
 
 #time-stamp{
     grid-area: time;
@@ -183,24 +265,51 @@ span{
 }
 
 .title h2{
-    color: var(--primary);
+    text-align: center;
+    color: var(--mindful);
 }
 
 .log-content{
     display: grid;
-    gap: 0.2rem;
-    grid-template-areas:
+    gap: 0.3rem;
+    grid-template-areas: 
     "win win mood"
-    "struggle struggle mood"
+    "struggle struggle struggle "
     "goal goal goal"
-    "time time time";
+    "time time time"
+    "btn btn btn";
     border: 2px solid var(--input-border);
     padding: 0.3rem;
     padding-bottom: 0.3rem;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     border-radius: 0.4rem;
-    color: var(--primary);
-    box-shadow: 0 2px 4px var(--primary);
+    box-shadow: var(--shadow-md);
+    max-height: 320px;
+}
+
+.stats-container{
+    display: grid;
+    place-content: center;
+    border: 1px solid var(--mindful);
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.chart-container{
+    margin-top: 0.7rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 0.6rem;
+    border-top: var(--mindful);
+}
+
+#moodChart{
+    height: 1em;
+    padding: 1rem;
 }
 
 .log-content:hover ,.log-content:focus{
@@ -208,16 +317,42 @@ span{
     transition: 0.3s ease-in-out
 }
 
-@media (min-width:600px){
+@media (min-width:550px){
+    .logs-container{
+        grid-template-columns: repeat(2,1fr);
+    }
     .log-content{
+        grid-template-areas:
+    "win win mood"
+    "struggle struggle struggle"
+    "goal goal goal"
+    "time time time"
+    "btn time time"
+    "edit edit del";
         gap: 0.5rem;
         padding: 1rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
         border-radius: 0.6rem;
+        max-height: 280px;
+        overflow: hidden;
+        scroll-behavior: smooth;
         box-shadow: 0 4px 8px var(--primary);
     }
+
+    .chart-container{
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        max-width: 800px;
+        margin: 0 auto;
+        border-top: var(--mindful);
+    }
     #mood-para{
-        font-size: 2rem;
+        height: 3rem;
+        padding: 0.4rem;
+        font-size: 1rem;
+        display: grid;
+        place-content: center;
     }
     #time-stamp{
         font-size: 1rem;
@@ -228,7 +363,7 @@ span{
     input{
         padding: 0.5rem;
     }
-    .snap-btn,.delete-btn ,.delete-entry{
+    .snap-btn,.delete-btn{
         width: 9rem;
         padding: 0.5rem;
         border-radius: 0.5rem;
@@ -245,8 +380,8 @@ footer{
     font-size: 0.9rem;
     text-align: center;
     padding: 0.2rem;
-    border-top: 1px solid var(--secondary);
+    border-top: 1px solid var(--mindful);
     position: fixed;
     bottom: 0;left: 0;right: 0;
     background-color: var(--bg-light);
-}
+} 
