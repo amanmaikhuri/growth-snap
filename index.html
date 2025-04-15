@@ -16,13 +16,37 @@
 <body class="lightmode">
     <header>
         <div class="logo">
-            <h1>Growth Snap</h1>
+            <i id="menu" class="fas fa-bars"></i>
+            <h1 id="logo">Growth Snap</h1>
         </div>
         <div class="nav-container">
             <button aria-label="toogle between dark/light themes" class="toggle-mode"><i class="fa"></i></button>
-            <span id="streak-count"></span>
+            <div class="reward">
+                <div id="coins">Coins: 0</div>
+                <div id="streak-count"></div>
+            </div>
         </div>
     </header>
+    <aside class="hidden" id="sidebar">
+        <i class="fas fa-times visible" id="hide-menu"></i>
+        <div class="history">
+            <h2>Growth Snap</h2>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="https://amanmaikhuri.github.io/moodTracker/" target="_blank" rel="noopener noreferrer">Mood Logger</a>
+            <a href="https://amanmaikhuri.github.io/expenseTracker/" target="_blank" rel="noopener noreferrer">Expense Tracker</a>
+            <a href="mailto:connect.amanmaikhuri@gamail.com?subject=Hello%20there&body=Share%20your%20feedback%20message%20here." target="_blank" rel="noopener noreferrer">
+                Email me
+            </a>
+            <a href="https://www.instagram.com/the_aman_effect/" target="_blank" rel="noopener noreferrer">Instagram</a>
+
+        </nav>
+        <div class="history-container">
+            <p id="history-msg">[your logs will be displayed here !]</p>
+            <div class="logs-history"></div>
+        </div>
+    </aside>
     <main>
         <p class="intro">[ Track your daily wins ,challenges , and Goals! (Perfect for Coders, Students, or anyone chasing goals !) ]</p>
         <div class="daily-snap-container">
@@ -81,29 +105,20 @@
             </select>
 
             <button class="snap-btn" type="button">Save My Day</button>
-            <button class="delete-btn" type="button">Remove All</button>
+            <button class="delete-btn" type="button">Remove Logs</button>
         </div>
         <div class="title">
             <h2>My Growth Logs</h2>
-            <p id="success-msg">[Your logs will be displayed here !]</p>
+            <p id="success-msg"></p>
         </div>
-        <div class="logs-container">
-                <p id="win-para"><span>Today's Win:</span>Studied 2 hours</p>
-                <p id="struggle-para"><span>Today's Challenge:</span> Procrastination ,distraction</p>
-                <p id="goal-para"><span>Goal:</span>complete two chapters</p>
-                <p id="mood-para"><span>Mood:</span>Happy</p>
-                 <p id="time-stamp"><small>02/04/2025 at 10:35:24</small></p>
-                <button data-id="${i}" class="edit-entry"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button data-id="${i}" class="delete-entry"><i class="fa-solid fa-trash"></i></button>
-
-        </div>
-        <div class="chart-container" style="height: 300px;">
+        <div class="logs-container"></div>
+        <div class="chart-container" style="height: 400px;" id="ctx">
             <div class="stats-container"></div>
             <canvas id="moodChart"></canvas>
         </div>
     </main>
     <footer>
-        <p>Made with ❤️ by LimeLight</p>
+        <p>Made with ❤️ by Aman Maikhuree</p>
     </footer>
     <script src="index.js"></script>
 </body>
