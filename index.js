@@ -445,8 +445,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function calculateStreak() {
-        if (state.logs.length < 2) return state.logs.length;
+        if (state.logs.length === 0) {
+            dom.streakCount.innerHTML = `Streak <i class="fas fa-bolt"></i>: 0 Days`;
+            return;
+        }
+    
         state.logs.sort((a, b) => new Date(b.datestamp) - new Date(a.datestamp));
+    
+        // Check if latest log is from yesterday
+        if (!isNextDay(state.logs[0])) {
+            dom.streakCount.innerHTML = `Streak <i class="fas fa-bolt"></i>: 0 Days`;
+            return;
+        }
         let streak = 1;
         for (let i = 1; i < state.logs.length; i++) {
             const prev = new Date(state.logs[i - 1].datestamp);
